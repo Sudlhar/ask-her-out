@@ -1,4 +1,7 @@
-localStorage.clear();
+if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+  localStorage.removeItem("yesScale");
+}
+
 
 const flowers = ["🌸","🌷","🌼","💮","🌺"];
 const hearts = ["❤","💖","💕","💗"];
