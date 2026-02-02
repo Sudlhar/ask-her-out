@@ -1,3 +1,13 @@
+const path = window.location.pathname;
+
+// reset ONLY on actual home page
+if (
+  path === "/" ||
+  path.endsWith("/ask-her-out/") ||
+  path.endsWith("index.html")
+) {
+  localStorage.removeItem("yesScale");
+}
 
 
 const flowers = ["🌸","🌷","🌼","💮","🌺"];
@@ -113,7 +123,5 @@ if(window.location.pathname.includes("yes.html")){
     },i*12);
   }
 }
-if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-  localStorage.removeItem("yesScale");
-}
+
 
