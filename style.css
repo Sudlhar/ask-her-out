@@ -13,10 +13,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  /* upgraded pastel animated background */
-  background: linear-gradient(270deg, #ffe5e5, #ffd6e8, #fff0f5);
-  background-size: 600% 600%;
-  animation: bgMove 12s ease infinite;
+  background: linear-gradient(270deg, #ffe5e5, #ffd6ec, #fff0f7, #ffeef2);
+  background-size: 700% 700%;
+  animation: bgMove 14s ease infinite;
   overflow: hidden;
 }
 
@@ -35,31 +34,30 @@ body {
   max-width: 500px;
   margin: 20px;
 
-  /* cute glass glow card */
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255,255,255,0.65);
   padding: 28px;
-  border-radius: 20px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 28px rgba(255, 120, 180, 0.45);
+  border-radius: 22px;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0 35px rgba(255,120,180,0.5);
   animation: softGlow 2.5s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes softGlow {
   from { box-shadow: 0 0 18px rgba(255,120,180,.4); }
-  to { box-shadow: 0 0 34px rgba(255,120,180,.75); }
+  to { box-shadow: 0 0 40px rgba(255,120,180,.8); }
 }
 
 .container .tenor-gif-embed {
   max-width: 200px;
 }
 
-/* buttons layout */
 .container .btn {
   display: flex;
   gap: 25px;
 }
 
-/* upgraded buttons */
 .btn a {
   text-decoration: none;
   color: #111;
@@ -67,45 +65,75 @@ body {
   padding: 12px 28px;
   border-radius: 40px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.25);
+  box-shadow: 0.5rem 1rem 3rem rgba(0,0,0,0.25);
   transition: 0.35s ease;
 }
 
-/* cute hover bounce */
 .btn a:hover {
-  transform: scale(1.12) rotate(-2deg);
+  transform: scale(1.15) rotate(-2deg);
   background: #ffe3ee;
 }
 
-/* 💕 floating hearts */
+/* HEARTS */
+
 .heart {
   position: fixed;
-  bottom: -20px;
+  bottom: -30px;
   color: #ff6fae;
-  font-size: 18px;
-  animation: floatUp 7s linear forwards;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* FLOWERS */
+
+.flower {
+  position: fixed;
+  bottom: -40px;
+  animation: floatUp linear forwards, spin 6s linear infinite;
   pointer-events: none;
   opacity: 0.85;
+  z-index: 1;
 }
 
 @keyframes floatUp {
   from {
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(0.8);
     opacity: 1;
   }
   to {
-    transform: translateY(-120vh) scale(1.6);
+    transform: translateY(-130vh) scale(1.6);
     opacity: 0;
   }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* SPARKLES */
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  border-radius: 50%;
+  animation: sparkleFloat 3s linear forwards;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes sparkleFloat {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-80vh); opacity: 0; }
+}
+
 /* mobile polish */
+
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-  .btn a {
-    padding: 10px 22px;
-  }
+  h1 { font-size: 1.6rem; }
+  .btn a { padding: 10px 22px; }
 }
