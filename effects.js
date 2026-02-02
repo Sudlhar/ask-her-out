@@ -1,11 +1,4 @@
-const path = window.location.pathname;
-
-// reset ONLY on actual home page
-if (
-  path === "/" ||
-  path.endsWith("/ask-her-out/") ||
-  path.endsWith("index.html")
-) {
+if (window.location.pathname.includes("yes.html")) {
   localStorage.removeItem("yesScale");
 }
 
