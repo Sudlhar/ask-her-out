@@ -34,3 +34,17 @@ function spawnSparkle() {
 setInterval(spawnHeart, 300);
 setInterval(spawnFlower, 700);
 setInterval(spawnSparkle, 250);
+// Grow YES button when NO is clicked
+
+const yesBtn = document.querySelector('.btn a[href="yes.html"]');
+const noBtn = document.querySelector('.btn a[href^="no"]');
+
+if (yesBtn && noBtn) {
+  let scale = 1;
+
+  noBtn.addEventListener("click", () => {
+    scale += 0.35;
+    yesBtn.style.transform = `scale(${scale})`;
+    yesBtn.style.transition = "0.3s ease";
+  });
+}
