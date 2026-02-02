@@ -58,7 +58,11 @@ body {
   gap: 25px;
 }
 
+/* ===== BUTTONS (FIXED SCALE SYSTEM) ===== */
+
 .btn a {
+  --yesScale: 1;
+
   text-decoration: none;
   color: #111;
   background: #fff;
@@ -67,14 +71,16 @@ body {
   font-weight: 600;
   box-shadow: 0.5rem 1rem 3rem rgba(0,0,0,0.25);
   transition: 0.35s ease;
+
+  transform: scale(var(--yesScale));
 }
 
 .btn a:hover {
-  transform: scale(1.15) rotate(-2deg);
+  transform: scale(calc(var(--yesScale) * 1.15)) rotate(-2deg);
   background: #ffe3ee;
 }
 
-/* HEARTS */
+/* ===== HEARTS ===== */
 
 .heart {
   position: fixed;
@@ -90,7 +96,7 @@ body {
   animation-duration: 8s;
 }
 
-/* FLOWERS */
+/* ===== FLOWERS ===== */
 
 .flower {
   position: fixed;
@@ -106,7 +112,7 @@ body {
   animation-duration: 9s, 6s;
 }
 
-/* SPARKLES */
+/* ===== SPARKLES ===== */
 
 .sparkle {
   position: fixed;
@@ -124,7 +130,7 @@ body {
   animation-duration: 3s;
 }
 
-/* ANIMATIONS */
+/* ===== ANIMATIONS ===== */
 
 @keyframes floatUp {
   from {
@@ -147,7 +153,7 @@ body {
   to { transform: translateY(-80vh); opacity: 0; }
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media (max-width: 480px) {
   h1 { font-size: 1.6rem; }
