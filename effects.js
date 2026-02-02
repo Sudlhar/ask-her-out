@@ -1,3 +1,5 @@
+localStorage.clear();
+
 const flowers = ["🌸","🌷","🌼","💮","🌺"];
 const hearts = ["❤","💖","💕","💗"];
 
