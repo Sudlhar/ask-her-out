@@ -49,25 +49,35 @@ setInterval(spawnFlower, 800);
 setInterval(spawnSparkle, 250);
 
 /* ================= YES SIZE (PERSISTENT ACROSS PAGES) ================= */
-
 const yesBtn = document.querySelector('.btn a[href="yes.html"]');
 const noBtn = document.querySelector('.btn a[href^="no"]');
+const runaway = document.getElementById("move-random");
 
+// start BIG + persistent
 let scale = localStorage.getItem("yesScale")
   ? parseFloat(localStorage.getItem("yesScale"))
-  : 1;
+  : 2.5;
 
 if (yesBtn) {
   yesBtn.style.transform = `scale(${scale})`;
   yesBtn.style.transition = "0.25s cubic-bezier(.34,1.56,.64,1)";
 }
 
-if (yesBtn && noBtn) {
-  noBtn.addEventListener("click", () => {
-    scale += 0.6;
-    localStorage.setItem("yesScale", scale);
-    yesBtn.style.transform = `scale(${scale})`;
-  });
+// grow function (shared)
+function growYes() {
+  scale += 0.5;
+  localStorage.setItem("yesScale", scale);
+  if (yesBtn) yesBtn.style.transform = `scale(${scale})`;
+}
+
+// grow on NO click (normal pages)
+if (noBtn) {
+  noBtn.addEventListener("click", growYes);
+}
+
+// grow on NO hover (no3.html runaway)
+if (runaway) {
+  runaway.addEventListener("mouseenter", growYes);
 }
 
 /* ================= RUNAWAY NO BUTTON ================= */
