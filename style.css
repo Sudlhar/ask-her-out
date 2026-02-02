@@ -80,10 +80,14 @@ body {
   position: fixed;
   bottom: -30px;
   color: #ff6fae;
-  animation: floatUp linear forwards;
   pointer-events: none;
   opacity: 0.9;
   z-index: 1;
+
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-duration: 8s;
 }
 
 /* FLOWERS */
@@ -91,11 +95,36 @@ body {
 .flower {
   position: fixed;
   bottom: -40px;
-  animation: floatUp linear forwards, spin 6s linear infinite;
   pointer-events: none;
   opacity: 0.85;
   z-index: 1;
+
+  animation-name: floatUp, spin;
+  animation-timing-function: linear, linear;
+  animation-fill-mode: forwards, none;
+  animation-iteration-count: 1, infinite;
+  animation-duration: 9s, 6s;
 }
+
+/* SPARKLES */
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 1;
+
+  animation-name: sparkleFloat;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+}
+
+/* ANIMATIONS */
 
 @keyframes floatUp {
   from {
@@ -113,25 +142,12 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* SPARKLES */
-
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: pink;
-  border-radius: 50%;
-  animation: sparkleFloat 3s linear forwards;
-  opacity: 0.8;
-  z-index: 1;
-}
-
 @keyframes sparkleFloat {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-80vh); opacity: 0; }
 }
 
-/* mobile polish */
+/* MOBILE */
 
 @media (max-width: 480px) {
   h1 { font-size: 1.6rem; }
