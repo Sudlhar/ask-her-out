@@ -46,7 +46,7 @@ const runawayBtn=document.getElementById("move-random");
 
 let scale=localStorage.getItem("yesScale")
   ? parseFloat(localStorage.getItem("yesScale"))
-  : 2.5;
+  : 1.3;
 
 if(yesBtn){
   yesBtn.style.transform=`scale(${scale})`;
